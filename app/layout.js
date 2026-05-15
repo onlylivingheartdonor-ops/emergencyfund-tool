@@ -2,10 +2,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <title>Cool Username Generator</title>
+        <title>Emergency Fund Calculator</title>
         <meta
           name="description"
-          content="Generate cool, creative usernames instantly. Create unique usernames for social media, gaming, and more."
+          content="Determine how much of an emergency fund is appropriate for your situation, and get tips on how to achieve it."
         />
 
         https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3475627763908800
