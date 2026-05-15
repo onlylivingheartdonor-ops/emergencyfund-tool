@@ -109,8 +109,6 @@ const css = `
 
 const MONTH_OPTIONS = [3, 4, 6, 8, 9, 12]
 
-import { RELATED_LINKS as RELATED } from "./lib/links"
-
 function fmt(n) { return "$" + Math.round(n).toLocaleString("en-US") }
 
 function getStatus(pct) {
