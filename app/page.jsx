@@ -246,7 +246,7 @@ export default function Page() {
             <span className="ef-months-label">Target coverage — how many months?</span>
             <div className="ef-months-row">
               {MONTH_OPTIONS.map(m => (
-                <button key={m} className={`ef-months-tab${targetMonths === m ? " on" : ""}`}
+                <button key={m} className={"ef-months-tab" + (targetMonths === m ? " on" : "")}
                   onClick={() => setTargetMonths(m)}>
                   {m} months
                 </button>
@@ -283,7 +283,7 @@ export default function Page() {
                 <p className="ef-result-val">{fmt(target)}</p>
                 <p className="ef-result-sub">
                   {fmt(monthly)}/month × {targetMonths} months
-                  {gap > 0 ? ` · ${fmt(gap)} still needed` : " · fully funded"}
+                  {gap > 0 ? " · " + fmt(gap) + " still needed" : " · fully funded"}
                 </p>
               </div>
 
@@ -294,16 +294,16 @@ export default function Page() {
                 </div>
                 <div className="ef-result-cell">
                   <p className="ef-result-cell-label">Currently saved</p>
-                  <p className={`ef-result-cell-val ${pct >= 100 ? "green" : pct >= 50 ? "blue" : "amber"}`}>{fmt(current)}</p>
+                  <p className={"ef-result-cell-val " + (pct >= 100 ? "green" : pct >= 50 ? "blue" : "amber")}>{fmt(current)}</p>
                 </div>
                 <div className="ef-result-cell">
                   <p className="ef-result-cell-label">Gap remaining</p>
-                  <p className={`ef-result-cell-val ${gap === 0 ? "green" : "red"}`}>{gap === 0 ? "None" : fmt(gap)}</p>
+                  <p className={"ef-result-cell-val " + (gap === 0 ? "green" : "red")}>{gap === 0 ? "None" : fmt(gap)}</p>
                 </div>
               </div>
 
               {status && (
-                <div className={`ef-status ${status.key}`}>
+                <div className={"ef-status " + status.key}>
                   <p className="ef-status-title">{status.title}</p>
                   <p className="ef-status-body">{status.msg}</p>
                 </div>
@@ -328,7 +328,7 @@ export default function Page() {
                       <div className="ef-savings-cell" key={i}>
                         <p className="ef-savings-cell-label">{fmt(s.amt)}/month</p>
                         <p className="ef-savings-cell-val">
-                          {s.months < 12 ? `${s.months} mo` : `${Math.floor(s.months / 12)}y ${s.months % 12}m`}
+                          {s.months < 12 ? s.months + " mo" : Math.floor(s.months / 12) + "y " + (s.months % 12) + "m"}
                         </p>
                       </div>
                     ))}
@@ -344,9 +344,9 @@ export default function Page() {
                     <p className="ef-savings-result">
                       At {fmt(ms)}/month you'll reach your goal in{" "}
                       <strong style={{ fontWeight: 500 }}>
-                        {monthsToGoal < 12 ? `${monthsToGoal} months` : `${Math.floor(monthsToGoal / 12)} years and ${monthsToGoal % 12} months`}
+                        {monthsToGoal < 12 ? monthsToGoal + " months" : Math.floor(monthsToGoal / 12) + " years and " + (monthsToGoal % 12) + " months"}
                       </strong>
-                      {hysaGrowth > 1 ? ` — earning an estimated ${fmt(hysaGrowth)} in HYSA interest along the way.` : "."}
+                      {hysaGrowth > 1 ? " — earning an estimated " + fmt(hysaGrowth) + " in HYSA interest along the way." : "."}
                     </p>
                   )}
                 </div>
@@ -435,16 +435,16 @@ export default function Page() {
         {/* ========== MONEYWISE LINK — END ========== */}
 
         {/* RELATED */}
-        <div className="dr-card">
-          <p className="dr-section-title">Related tools</p>
-          <div className="dr-related-links">
+        <div className="ef-card">
+          <p className="ef-section-title">Related tools</p>
+          <div className="ef-related-links">
             {RELATED.map((r, i) => (
-              <a key={i} className="dr-related-link" href={r.href}>{r.label}</a>
+              <a key={i} className="ef-related-link" href={r.href}>{r.label}</a>
             ))}
           </div>
-          <div className="dr-disclaimer">
+          <div className="ef-disclaimer">
             This tool provides estimates for informational purposes only and does not constitute financial advice. Results assume a fixed interest rate and fixed monthly payment for the full repayment period. This site may use cookies and analytics. By using this site, you agree to our Privacy Policy and Terms of Service.
-            <div className="dr-footer-links">
+            <div className="ef-footer-links">
               <a href="/privacy">Privacy Policy</a>
               <a href="/terms">Terms of Service</a>
             </div>
